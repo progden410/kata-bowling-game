@@ -1,13 +1,12 @@
 import io.kata.bowlinggame.BonusType;
-import io.kata.bowlinggame.BowlingGame;
 import io.kata.bowlinggame.Frame;
 import io.kata.bowlinggame.MockBowlingGame;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.platform.commons.logging.Logger;
-import org.junit.platform.commons.logging.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.stream.Stream;
@@ -15,7 +14,7 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GameTest {
-    private static final Logger logger = LoggerFactory.getLogger(GameTest.class);
+    private static final Logger logger = LogManager.getLogger(GameTest.class);
 
     private Frame f;
 
