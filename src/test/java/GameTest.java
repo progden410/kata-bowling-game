@@ -65,6 +65,7 @@ public class GameTest {
                 Arguments.of("1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1", 18, 10),
                 Arguments.of("1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1", 20, 10),
                 Arguments.of("0,10", 10, 2),
+                Arguments.of("0,10,5", 20, 2),
                 Arguments.of("0", 0, 1),
                 Arguments.of("", 0, 1)
         );
