@@ -4,13 +4,22 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Frame {
+    public static Frame of(int frameNum) {
+        if (1 <= frameNum && frameNum <= 10) {
+            return new Frame(frameNum);
+        } else if (frameNum == 10) {
+            return new TenthFrame(10);
+        }
+        return new ErrorFrame(frameNum);
+    }
+
     private final int frameNum;
     List<Integer> pins = new LinkedList<>();
     List<Integer> bonus = new LinkedList<>();
 
     private BonusType bonusType = BonusType.Normal;
 
-    public Frame(int frameNum) {
+    protected Frame(int frameNum) {
         this.frameNum = frameNum;
     }
 

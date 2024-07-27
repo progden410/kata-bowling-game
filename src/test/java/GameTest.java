@@ -56,7 +56,7 @@ public class GameTest {
     }
 
     private void newFrame(int... pins) {
-        f = new Frame(1);
+        f = Frame.of(1);
         for (int pin : pins) {
             f.roll(pin);
         }
