@@ -2,11 +2,12 @@ package io.kata.bowlinggame;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.function.Function;
 
 public class Frame {
     private final int frameNum;
     List<Integer> pins = new LinkedList<>();
+    List<Integer> bonus = new LinkedList<>();
+
     private BonusType bounsType = BonusType.Normal;
 
     public Frame(int frameNum) {
@@ -38,10 +39,26 @@ public class Frame {
     }
 
     public Integer score() {
-        return pins.stream().mapToInt(p -> p).sum();
+        return pins.stream().mapToInt(p -> p).sum() +
+                bonus.stream().mapToInt(p -> p).sum()
+                ;
     }
 
     public BonusType bounsType() {
         return bounsType;
+    }
+
+    public int bonusSize() {
+        return bonus.size();
+    }
+
+    public void addBouns(int pins) {
+        if (bounsType() == BonusType.Spare && bonusSize() < 1) {
+            bonus.add(pins);
+        }
+        if (bounsType() == BonusType.Strike && bonusSize() < 2) {
+            bonus.add(pins);
+        }
+
     }
 }
