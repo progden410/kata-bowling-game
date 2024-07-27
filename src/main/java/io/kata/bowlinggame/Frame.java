@@ -8,7 +8,7 @@ public class Frame {
     List<Integer> pins = new LinkedList<>();
     List<Integer> bonus = new LinkedList<>();
 
-    private BonusType bounsType = BonusType.Normal;
+    private BonusType bonusType = BonusType.Normal;
 
     public Frame(int frameNum) {
         this.frameNum = frameNum;
@@ -25,7 +25,7 @@ public class Frame {
     }
 
     private void setBounsType() {
-        bounsType = isStrike() ? BonusType.Strike :
+        bonusType = isStrike() ? BonusType.Strike :
                 isSpare() ? BonusType.Spare :
                         BonusType.Normal;
     }
@@ -44,21 +44,29 @@ public class Frame {
                 ;
     }
 
-    public BonusType bounsType() {
-        return bounsType;
+    public BonusType bonusType() {
+        return bonusType;
     }
 
     public int bonusSize() {
         return bonus.size();
     }
 
-    public void addBouns(int pins) {
-        if (bounsType() == BonusType.Spare && bonusSize() < 1) {
+    public void addBonus(int pins) {
+        if (bonusType == BonusType.Spare && bonusSize() < 1) {
             bonus.add(pins);
         }
-        if (bounsType() == BonusType.Strike && bonusSize() < 2) {
+        if (bonusType == BonusType.Strike && bonusSize() < 2) {
             bonus.add(pins);
         }
 
+    }
+
+    @Override
+    public String toString() {
+        return "Frame" +
+                "[" + frameNum + "][" + bonusType + "] = " + score() +
+                ", pins=" + pins +
+                ", bonus=" + bonus;
     }
 }
