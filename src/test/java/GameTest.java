@@ -1,6 +1,7 @@
 import io.kata.bowlinggame.BonusType;
 import io.kata.bowlinggame.BowlingGame;
 import io.kata.bowlinggame.Frame;
+import io.kata.bowlinggame.MockBowlingGame;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -21,7 +22,7 @@ public class GameTest {
     @ParameterizedTest
     @MethodSource
     public void Given_a_bowling_game_When_roll_pins_Then_frame_increase(String rolls, int expectScore, int expectFrames) {
-        var game = new BowlingGame();
+        var game = new MockBowlingGame();
 
         Arrays.stream(rolls.split(","))
                 .filter(pins -> !pins.equals(""))
